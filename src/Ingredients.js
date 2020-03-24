@@ -70,40 +70,36 @@ function Ingredients() {
   };
 
   return (
-    <div>
-        <table>
-            <tbody>
-                <tr>
-                    <td>Choose your date :</td>
-                    <td><DatePicker dateFormat="yyyy-MM-dd" selected={startDate} onChange={handleChange} /></td>
-                </tr>
-                <tr>
-                    <td>Available Ingredients :</td>
-                    <td>
-                        {items.map(item => (
-                            <div key={item.title}>
-                                <input type="checkbox" id={item.title} name="ingredients" value={item.title} onClick={handleChexbox} /> {item.title}<br />
-                            </div>
-                        ))}
-                    </td>
-                </tr>
-                <tr>
-                    <td>Available Recipes :</td>
-                    <td>
-                        {recipes.map(recipe => (
-                            <div key={recipe.title}>
-                                <h1>{recipe.title}</h1>
-                                <ul>
-                                    {recipe.ingredients.map(ing => (
-                                        <li key={ing}>{ing} </li>
-                                    ))}
-                                </ul>
-                            </div>
-                        ))}
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+    <div className="container">
+        <div className="row">
+            <div className="col">Choose your date :</div>
+            <div className="col"><DatePicker dateFormat="yyyy-MM-dd" selected={startDate} onChange={handleChange} /></div>
+        </div>
+        <div className="row">
+            <div className="col">Available Ingredients :</div>
+            <div className="col">
+                {items.map(item => (
+                    <div key={item.title}>
+                        <input type="checkbox" id={item.title} name="ingredients" value={item.title} onClick={handleChexbox} /> {item.title}<br />
+                    </div>
+                ))}
+            </div>
+        </div>
+        <div className="row">
+            <div className="col">Available Recipes :</div>
+            <div className="col">
+                {recipes.map(recipe => (
+                    <div key={recipe.title}>
+                        <h1>{recipe.title}</h1>
+                        <ul>
+                            {recipe.ingredients.map(ing => (
+                                <li key={ing}> {ing}</li>
+                            ))}
+                        </ul>
+                    </div>
+                ))}
+            </div>
+        </div>
     </div>
   );
 }
